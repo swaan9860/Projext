@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="register_test.css">
+</head>
+<body>
+ 
+	<div class="register">
+		<h1>Please fill the details required and press submit to register a new set of data</h1>
+<form  action="teacher_reg_backend.php" method="post" id="submit">
+	<table width="88%" border="12">
+		
+        <tr>
+        	<td>Firstname </td>
+        	<td>
+        		<input type="text" name="firstname" id="fname" placeholder="Firstname">
+        	</td><br>
+        <tr>
+        	<td>Lastname</td>
+        	<td>
+        		<input type="text" name="lastname" id="lname" placeholder="Lastname">
+        	</td><br>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td>
+				<input type="text" name="age" id="age" placeholder="between 30-80">
+			</td><br>
+		</tr>
+		<tr>
+			<td>Username</td>
+			<td>
+				<input type="text" name="username" id="uname" placeholder="Username">
+		</td><br>
+				</tr>
+				<tr>
+		<td>Email</td>
+		<td><input type="text" name="email" id="email" placeholder="example:john@gmail.com">
+		</td><br>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				<input type="text" name="password" id="psw" placeholder="Password">
+			</td><br>
+		</tr>
+				<tr>
+					<td>
+		<button type="button"  onclick="validate()">
+			submit
+		</button>
+	</td>
+		</tr>
+	</table>	
+    </form>
+    </div>
+</body>
+<script type="text/javascript">
+	//this is for validating the data and format which is entered in the register form
+function validate() {//returns true if valid, else false (invalid)}
+	var failMsg = validateFirstname(document.getElementById('fname').value)
+	failMsg += validateLastname(document.getElementById('lname').value)
+	failMsg += validateAge(document.getElementById('age').value)
+	failMsg += validateUsername(document.getElementById('uname').value)
+	failMsg += validateEmail(document.getElementById('email').value)
+	failMsg += validatePassword(document.getElementById('psw').value)
+
+	console.log(validateFirstname(document.getElementById('fname').value))
+
+	if (failMsg == ""){
+		alert("successful validations !!")
+		document.getElementById('submit').submit()
+		return true	//validation passed
+	}else{
+		alert(failMsg);
+		return false	//validation failMsged
+	}
+}
+function validateFirstname(field){
+	if (field == "") return "No Firstname was entered. \n"
+		return ""
+}
+function validateLastname(field){
+	if (field == "") return "No Lastname was entered. \n"
+		return ""
+}
+function validateUsername(field){
+	if(field == "") return "No Username was entered. \n"
+		else if (field.length < 5) return "Username must be at least 5 characters. \n"
+		else if (/[^a-zA-Z0-9_-]/.test(field)) //^ is not
+			return "Only a-z, A-Z, 0-9, - and _ allowed in Username. \n"
+		return ""
+}
+function validatePassword(field){
+	if (field == "")return "No Password was entered. \n"
+	else if (field.length < 6) return "Password must be at least 6 charactes. \n"
+	else if (!/[a-z]/.test(field) || !/[A-Z]/.test(field) || !/[0-9]/.test(field))
+		return "Password requires at least one of a-z, A-Z, 0-9. \n"
+		return ""
+}
+function validateAge(field){
+	if (isNaN(field))	//Is not a number = NaN
+		return "No Age was entered. \n"
+	else if (field < 30 || field > 80)
+	return "Age must be between 30 to 80. \n"
+	return ""
+}
+
+function validateEmail(field){
+	if(field=="") return "Enter the email. \n"
+		else if(!((field.indexOf(".")>0)) && (field,indexOf("@")>0) || /[^a-zA-Z0-9.@_-]/.test(field))
+			return "The Email is not valid. \n"
+		return""
+}
+</script>
+</html>

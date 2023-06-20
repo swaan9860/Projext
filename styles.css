@@ -1,0 +1,62 @@
+/* CSS for table */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table td,
+table th {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #CCCCCC;
+}
+
+/* CSS for links */
+a {
+  color: #0000FF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* CSS for container */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* CSS for buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.btn-danger {
+  background-color: #f44336;
+}
+
+.btn-danger:hover {
+  background-color: #da190b;
+}
