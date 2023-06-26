@@ -22,7 +22,7 @@
 
         <div class="card">
             <h2>Tasks</h2>
-            <a href="login_test.php">Login here.</a>
+            <a href="log_test.html">Login here.</a>
             <p>Don't have an account yet?</p>
             <a href="register_test.html">Register here!</a>
         </div>
